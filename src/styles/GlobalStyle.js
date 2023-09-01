@@ -32,7 +32,7 @@ const GlobalStyles = createGlobalStyle`
     line-height: 1;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 10px;
+    padding: 10px 0;
     font-size: 12px;
     font-family: 'nanumsquare';
   }
@@ -54,6 +54,12 @@ const GlobalStyles = createGlobalStyle`
   a {
     text-decoration: none;
     color: black;
+  }
+  button {
+    background: none;
+    border:none;
+    margin: 0;
+    padding: 0;
   }
 `;
 
