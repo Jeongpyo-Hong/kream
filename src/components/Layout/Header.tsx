@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import logo from "../../assets/logo.png";
 import { styled } from "styled-components";
 import { MdSearch } from "react-icons/md";
 
@@ -11,8 +10,8 @@ export const Header = () => {
   ];
 
   const [activeCate, setActiveCate] = useState("HOME");
-  const activeHandler = (cate: string) => {
-    setActiveCate(cate);
+  const activeHandler = (cateName: string) => {
+    setActiveCate(cateName);
   };
 
   return (
@@ -27,7 +26,7 @@ export const Header = () => {
 
       <StHomeCateContainer>
         <StLogo href="/">
-          <img src={logo} alt="logo" width="100%" height="100%" />
+          <img src="assets/logo.png" alt="logo" width="100%" height="100%" />
         </StLogo>
         <StCateContainer>
           {categories.map((cate, idx) => (
@@ -35,7 +34,7 @@ export const Header = () => {
               href={cate.href}
               key={idx}
               onClick={() => activeHandler(cate.name)}
-              active={activeCate === cate.name}
+              $active={activeCate === cate.name}
             >
               {cate.name}
             </StCate>
@@ -82,8 +81,8 @@ const StCateContainer = styled.div`
   column-gap: 32px;
 `;
 
-const StCate = styled.a<{ active: boolean }>`
-  font-weight: ${(props) => props.active && "800"};
+const StCate = styled.a<{ $active: boolean }>`
+  font-weight: ${(props) => props.$active && "800"};
 `;
 
 const StSearchBtn = styled.button`

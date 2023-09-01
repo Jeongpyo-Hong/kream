@@ -17,7 +17,7 @@ export const Categories = ({ categories }: CategoriesProps) => {
         <StCate
           key={idx}
           onClick={() => activeHandler(cate)}
-          active={activeCate === cate}
+          $active={activeCate === cate}
         >
           {cate}
         </StCate>
@@ -31,11 +31,11 @@ const StCategoriesContainer = styled.div`
   font-size: 16px;
 `;
 
-const StCate = styled.span<{ active: boolean }>`
+const StCate = styled.span<{ $active: boolean }>`
   display: inline-block;
   padding-bottom: 10px;
-  font-weight: ${(props) => props.active && "800"};
-  border-bottom: ${(props) => props.active && "3px solid black"};
+  font-weight: ${(props) => props.$active && "800"};
+  border-bottom: ${(props) => props.$active && "3px solid black"};
   margin-right: 20px;
   cursor: pointer;
 `;
