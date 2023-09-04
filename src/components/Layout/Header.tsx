@@ -54,7 +54,7 @@ const StNavContainer = styled.div`
   justify-content: flex-end;
   align-items: center;
   column-gap: 24px;
-  padding-bottom: 20px;
+  padding: 10px 0 20px 0;
   a {
     color: #555555;
   }

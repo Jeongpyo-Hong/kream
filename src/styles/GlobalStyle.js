@@ -32,7 +32,6 @@ const GlobalStyles = createGlobalStyle`
     line-height: 1;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 10px 0;
     font-size: 12px;
     font-family: 'nanumsquare';
     overflow-x: hidden;

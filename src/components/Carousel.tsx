@@ -38,7 +38,7 @@ export const Carousel = () => {
           <StItem
             $translateX={translateX}
             key={idx}
-            opacity={img === translateX}
+            $opacity={img === translateX}
           >
             <StImg src={`assets/carousel/${img}.jpg`} />
           </StItem>
@@ -50,7 +50,7 @@ export const Carousel = () => {
         {imgArr.map((img, idx) => (
           <StCircle
             onClick={() => selctCircleHandler(img)}
-            isSelect={img === selectCircle}
+            $isSelect={img === selectCircle}
             key={idx}
           >
             ⚫
@@ -91,9 +91,9 @@ const StCarousel = styled.ul`
   border-bottom: 1px solid #eee;
 `;
 
-const StItem = styled.li<{ $translateX: number; opacity: boolean }>`
+const StItem = styled.li<{ $translateX: number; $opacity: boolean }>`
   transform: translateX(-${(props) => props.$translateX * 100}%);
-  opacity: ${(props) => (props.opacity ? "1" : "0.6")};
+  opacity: ${(props) => (props.$opacity ? "1" : "0.6")};
   transition: opacity 0.6s ease-in-out;
 `;
 
@@ -112,8 +112,8 @@ const StCircleWrap = styled.div`
   column-gap: 6px;
 `;
 
-const StCircle = styled.span<{ isSelect: boolean }>`
+const StCircle = styled.span<{ $isSelect: boolean }>`
   font-size: 10px;
-  opacity: ${(props) => (props.isSelect ? "1" : "0.3")};
+  opacity: ${(props) => (props.$isSelect ? "1" : "0.3")};
   cursor: pointer;
 `;
