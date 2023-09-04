@@ -35,6 +35,7 @@ const GlobalStyles = createGlobalStyle`
     padding: 10px 0;
     font-size: 12px;
     font-family: 'nanumsquare';
+    overflow-x: hidden;
   }
   ol, ul {
     list-style: none;

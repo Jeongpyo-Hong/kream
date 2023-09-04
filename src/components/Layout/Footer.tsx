@@ -40,7 +40,6 @@ export const Footer = () => {
 };
 
 const StFooterContainer = styled.div`
-  border-bottom: 1px solid #eee;
   padding: 50px 0;
 `;
 
