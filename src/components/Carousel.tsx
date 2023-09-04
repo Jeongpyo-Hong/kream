@@ -35,8 +35,12 @@ export const Carousel = () => {
     <StContainer>
       <StCarousel>
         {imgArr.map((img, idx) => (
-          <StItem $translateX={translateX} key={idx}>
-            <img src={`assets/carousel/${img}.jpg`} />
+          <StItem
+            $translateX={translateX}
+            key={idx}
+            opacity={img === translateX}
+          >
+            <StImg src={`assets/carousel/${img}.jpg`} />
           </StItem>
         ))}
       </StCarousel>
@@ -87,14 +91,16 @@ const StCarousel = styled.ul`
   border-bottom: 1px solid #eee;
 `;
 
-const StItem = styled.li<{ $translateX: number }>`
+const StItem = styled.li<{ $translateX: number; opacity: boolean }>`
   transform: translateX(-${(props) => props.$translateX * 100}%);
+  opacity: ${(props) => (props.opacity ? "1" : "0.6")};
+  transition: opacity 0.6s ease-in-out;
+`;
 
-  img {
-    width: 100vw;
-    height: 480px;
-    object-fit: contain;
-  }
+const StImg = styled.img`
+  width: 100vw;
+  height: 480px;
+  object-fit: contain;
 `;
 
 const StCircleWrap = styled.div`
