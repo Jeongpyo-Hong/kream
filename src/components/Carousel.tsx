@@ -65,6 +65,7 @@ const StContainer = styled.div`
   position: relative;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
+  margin-bottom: 30px;
   overflow: hidden;
 `;
 
@@ -106,7 +107,7 @@ const StImg = styled.img`
 const StCircleWrap = styled.div`
   position: absolute;
   left: 50%;
-  bottom: 30px;
+  bottom: 20px;
   transform: translateX(-50%);
   display: flex;
   column-gap: 6px;

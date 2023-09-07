@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { styled } from "styled-components";
 
-interface CategoriesProps {
-  categories: string[];
-}
-
-export const Categories = ({ categories }: CategoriesProps) => {
+export const MainCategories = () => {
+  const categories = ["추천", "랭킹", "럭셔리", "남성", "여성", "발견"];
   const [activeCate, setActiveCate] = useState(categories[0]);
   const activeHandler = (cate: string) => {
     setActiveCate(cate);

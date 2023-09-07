@@ -18,7 +18,7 @@ export const Layout = (props: { children: React.ReactNode }) => {
   useEffect(() => {
     const scrollYHandler = () => {
       const scrollY = window.scrollY;
-      scrollY > 100 ? setIsVisible(true) : setIsVisible(false);
+      scrollY > 50 ? setIsVisible(true) : setIsVisible(false);
     };
 
     window.addEventListener("scroll", scrollYHandler);

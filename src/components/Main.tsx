@@ -1,14 +1,16 @@
 import React from "react";
-import { Categories } from "./Categories";
+import { MainCategories } from "./MainCategories";
 import { Carousel } from "./Carousel";
+import { SubCategories } from "./SubCategories";
+import { ShoesList } from "./ShoesList";
 
 export const Main = () => {
   return (
     <div>
-      <Categories
-        categories={["추천", "랭킹", "럭셔리", "남성", "여성", "발견"]}
-      />
+      <MainCategories />
       <Carousel />
+      <SubCategories />
+      <ShoesList />
     </div>
   );
 };
