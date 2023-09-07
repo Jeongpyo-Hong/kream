@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { getShoesList } from "../api/api";
 import { useQuery } from "@tanstack/react-query";
 import { styled } from "styled-components";
+import { Horizontal } from "./Horizontal";
 
 type ListWithOptionalNext = ListItem[] & [{ isEnd?: "y" }];
 type ListItem = {
@@ -25,28 +26,46 @@ export const ShoesList = () => {
   }
 
   return (
-    <StContainer>
-      {list?.map(
-        (item, idx) =>
-          item.img && (
-            <StItem key={idx}>
-              <StImgBox>
-                <StImg src={item.img} alt="shoes" />
-              </StImgBox>
-              <StBrand>{item.brand}</StBrand>
-              <p>{item.name}</p>
-              <p>{item.price}원</p>
-            </StItem>
-          )
-      )}
-      {isEnd !== "y" && (
-        <StMoreBtnBox>
-          <StMoreBtn onClick={() => setCnt(cnt + 1)}>더보기</StMoreBtn>
-        </StMoreBtnBox>
-      )}
-    </StContainer>
+    <>
+      <StTitle>Just Dropped</StTitle>
+      <StSubTitle>발매 상품</StSubTitle>
+      <StContainer>
+        {list?.map(
+          (item, idx) =>
+            item.img && (
+              <StItem key={idx}>
+                <StImgBox>
+                  <StImg src={item.img} alt="shoes" />
+                </StImgBox>
+                <StBrand>{item.brand}</StBrand>
+                <p>{item.name}</p>
+                <p>{item.price}원</p>
+              </StItem>
+            )
+        )}
+        {isEnd !== "y" && (
+          <StMoreBtnBox>
+            <StMoreBtn onClick={() => setCnt(cnt + 1)}>더보기</StMoreBtn>
+          </StMoreBtnBox>
+        )}
+      </StContainer>
+      <Horizontal />
+    </>
   );
 };
+
+const StTitle = styled.p`
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 8px;
+`;
+
+const StSubTitle = styled.p`
+  font-size: 14px;
+  font-weight: 500;
+  color: #777;
+  margin-bottom: 16px;
+`;
 
 const StContainer = styled.ul`
   display: flex;

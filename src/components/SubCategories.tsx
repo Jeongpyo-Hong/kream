@@ -1,5 +1,6 @@
 import React from "react";
 import { styled } from "styled-components";
+import { Horizontal } from "./Horizontal";
 
 export const SubCategories = () => {
   const categories = [
@@ -25,7 +26,7 @@ export const SubCategories = () => {
           </StItem>
         ))}
       </StContainer>
-      <StHr />
+      <Horizontal />
     </>
   );
 };
@@ -55,9 +56,4 @@ const StItemBox = styled.div`
 const StItemTitle = styled.p`
   text-align: center;
   font-size: 14px;
-`;
-
-const StHr = styled.hr`
-  border: 1px solid #eee;
-  margin-bottom: 40px;
 `;
