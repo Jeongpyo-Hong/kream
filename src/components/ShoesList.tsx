@@ -1,38 +1,49 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { getShoesList } from "../api/api";
 import { useQuery } from "@tanstack/react-query";
 import { styled } from "styled-components";
 
-interface ShoesListface {
+type ListWithOptionalNext = ListItem[] & [{ isEnd?: "y" }];
+type ListItem = {
   brand: string;
   name: string;
   price: string;
   dcPrice: string;
   point: string;
   img: string;
-}
+};
 
 export const ShoesList = () => {
   const [cnt, setCnt] = useState(1);
-  const { data } = useQuery<ShoesListface[]>(["shoesList", cnt], () =>
-    getShoesList(cnt)
+  const { data: list } = useQuery<ListWithOptionalNext>(
+    ["shoesList", cnt],
+    () => getShoesList(cnt)
   );
+  let isEnd: string | undefined = "n";
+  if (list) {
+    isEnd = list[list.length - 1].isEnd;
+  }
 
   return (
     <StContainer>
-      {data?.map((item, idx) => (
-        <StItem key={idx}>
-          <StImgBox>
-            <StImg src={item.img} alt="shoes" />
-          </StImgBox>
-          <StBrand>{item.brand}</StBrand>
-          <p>{item.name}</p>
-          <p>{item.price}원</p>
-        </StItem>
-      ))}
-      <StMoreBtnBox>
-        <StMoreBtn onClick={() => setCnt(cnt + 1)}>더보기</StMoreBtn>
-      </StMoreBtnBox>
+      {list?.map(
+        (item, idx) =>
+          item.img && (
+            <StItem key={idx}>
+              <StImgBox>
+                <StImg src={item.img} alt="shoes" />
+              </StImgBox>
+              <StBrand>{item.brand}</StBrand>
+              <p>{item.name}</p>
+              <p>{item.price}원</p>
+            </StItem>
+          )
+      )}
+      {isEnd !== "y" && (
+        <StMoreBtnBox>
+          <StMoreBtn onClick={() => setCnt(cnt + 1)}>더보기</StMoreBtn>
+        </StMoreBtnBox>
+      )}
     </StContainer>
   );
 };

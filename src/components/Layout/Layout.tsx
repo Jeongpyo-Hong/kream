@@ -7,7 +7,6 @@ import { MdArrowCircleUp } from "react-icons/md";
 export const Layout = (props: { children: React.ReactNode }) => {
   const [isVisible, setIsVisible] = useState(false);
   const scrollRef = useRef<any | null>(null);
-  console.log("first:", scrollRef);
 
   const scrollToTop = () => {
     if (scrollRef.current) {
